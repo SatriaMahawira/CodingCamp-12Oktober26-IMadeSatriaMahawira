@@ -1,0 +1,138 @@
+﻿<!doctype html>
+<html lang="id" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo Life Dashboard</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>✦ Todo Life Dashboard</h1>
+      <button id="theme-toggle" aria-label="Toggle tema">
+        <span id="theme-icon">🌙</span>
+      </button>
+    </header>
+
+    <main>
+
+      <!-- Greeting Widget — full width, centered -->
+      <section id="greeting-widget" aria-label="Widget Sapaan dan Waktu">
+        <div id="clock">00:00:00</div>
+        <div id="date-display">Senin, 01 Januari 2024</div>
+        <div id="greeting-text">Selamat Pagi, Pengguna!</div>
+        <div id="name-input-group">
+          <input
+            type="text"
+            id="name-input"
+            maxlength="50"
+            placeholder="Ubah nama Anda…"
+          />
+          <button id="name-save-btn">Simpan</button>
+          <span id="name-error" class="error-msg" aria-live="polite"></span>
+        </div>
+      </section>
+
+      <!-- Two-column grid: timer+links kiri, todo kanan -->
+      <div class="dashboard-grid">
+
+        <!-- Kolom Kiri -->
+        <div class="col-left">
+
+          <!-- Focus Timer -->
+          <section id="focus-timer" aria-label="Focus Timer">
+            <p class="widget-label" style="color:rgba(255,255,255,0.7)">⏱ Pomodoro Timer</p>
+
+            <!-- Duration adjuster -->
+            <div id="timer-duration-row">
+              <button id="timer-dec" aria-label="Kurangi 1 menit">−</button>
+              <span id="timer-duration-label">25 menit</span>
+              <button id="timer-inc" aria-label="Tambah 1 menit">+</button>
+            </div>
+
+            <div id="timer-display">25:00</div>
+            <div id="timer-controls">
+              <button id="timer-start">▶ Start</button>
+              <button id="timer-stop" disabled>■ Stop</button>
+              <button id="timer-reset">↺ Reset</button>
+            </div>
+            <div id="timer-notification" class="hidden" role="alert">
+              🎉 Sesi fokus selesai! Istirahatlah sejenak.
+            </div>
+          </section>
+
+          <!-- Quick Links -->
+          <section id="quick-links" aria-label="Quick Links Media Sosial">
+            <p class="widget-label">🔗 Quick Links</p>
+            <a
+              href="https://www.instagram.com/satriamahawira/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="quick-link link-instagram"
+            >
+              <span class="link-icon" aria-hidden="true">📷</span>
+              <span class="link-name">Instagram</span>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/satria-mahawira/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="quick-link link-linkedin"
+            >
+              <span class="link-icon" aria-hidden="true">💼</span>
+              <span class="link-name">LinkedIn</span>
+            </a>
+            <a
+              href="https://www.facebook.com/mahawira.madesatria"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="quick-link link-facebook"
+            >
+              <span class="link-icon" aria-hidden="true">👤</span>
+              <span class="link-name">Facebook</span>
+            </a>
+          </section>
+
+        </div><!-- /col-left -->
+
+        <!-- Kolom Kanan -->
+        <div class="col-right">
+
+          <!-- Todo List -->
+          <section id="todo-list" aria-label="Daftar Tugas">
+            <p class="widget-label">✅ Daftar Tugas</p>
+            <div id="todo-input-group">
+              <input
+                type="text"
+                id="task-input"
+                maxlength="100"
+                placeholder="Tambah task baru…"
+              />
+              <select id="priority-select" aria-label="Prioritas task">
+                <option value="sedang" selected>Sedang</option>
+                <option value="tinggi">Tinggi</option>
+                <option value="rendah">Rendah</option>
+              </select>
+              <button id="task-add-btn">+ Tambah</button>
+              <span id="task-error" class="error-msg" aria-live="polite"></span>
+            </div>
+            <div id="sort-controls">
+              <button id="sort-status">↕ Status</button>
+              <button id="sort-priority">★ Prioritas</button>
+            </div>
+            <ul id="task-list" aria-label="Daftar tugas"></ul>
+            <p id="empty-state" class="hidden">
+              Belum ada tugas. Tambahkan task pertamamu! 🚀
+            </p>
+          </section>
+
+        </div><!-- /col-right -->
+
+      </div><!-- /dashboard-grid -->
+
+    </main>
+
+    <script src="js/app.js" defer></script>
+  </body>
+</html>
+
